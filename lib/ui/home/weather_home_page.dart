@@ -91,6 +91,7 @@ class WeatherHomePage extends StatelessWidget {
                                                     'N/A',
                                                 style: TextStyle(
                                                   fontSize: 18,
+                                                  color: Colors.black
                                                 )),
                                           ])),
                                           SizedBox.fromSize(
@@ -115,6 +116,7 @@ class WeatherHomePage extends StatelessWidget {
                                                     'N/A',
                                                 style: TextStyle(
                                                   fontSize: 18,
+                                                  color: Colors.black
                                                 )),
                                           ]))
                                         ],
