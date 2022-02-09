@@ -5,6 +5,7 @@ import 'package:weather/data/remote/api_client.dart';
 
 class HomeProvider with ChangeNotifier {
   CurrentLocationWeather? weatherData;
+  bool isLoading=true;
 
   HomeProvider() {
     final Location location = Location();
@@ -25,9 +26,16 @@ class HomeProvider with ChangeNotifier {
   void getCurrentLocationWeather(
       {required dynamic lon, required dynamic lat}) async {
     debugPrint('in CAll APi');
+    setLoading(true);
     weatherData =
         await ApiClient().fetchCurrentLocationWeather(lon: lon, lat: lat);
+    setLoading(false);
     print(' data   ${weatherData?.forecast?.toJson()}');
+    notifyListeners();
+  }
+
+  void setLoading(bool loading) {
+    isLoading = loading;
     notifyListeners();
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -6,15 +5,19 @@ int currentTimeInSeconds = (DateTime.now().millisecondsSinceEpoch) ~/ 1000;
 DateTime now = DateTime.now();
 
 String background({String sunRise = '', String sunSet = ''}) {
-  if (currentTimeInSeconds.isBetween(parseTime(sunRise), parseTime(sunSet))) {
-    print('day');
-    return 'images/sunset.jpeg';
-  } else {
-    print('night');
+  if (sunSet.isNotEmpty) {
+    if (currentTimeInSeconds.isBetween(parseTime(sunRise), parseTime(sunSet))) {
+      print('day');
+      return 'images/sunset.jpeg';
+    } else {
+      print('night');
 
-    return 'images/night.jpg';
+      return 'images/night.jpg';
+    }
   }
+  else return'images/background.png';
 }
+
 Color textColor({String sunRise = '', String sunSet = ''}) {
   if (currentTimeInSeconds.isBetween(parseTime(sunRise), parseTime(sunSet))) {
     print('day');
