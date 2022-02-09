@@ -27,7 +27,7 @@ class HomeProvider with ChangeNotifier {
     debugPrint('in CAll APi');
     weatherData =
         await ApiClient().fetchCurrentLocationWeather(lon: lon, lat: lat);
-    print(' data   ${weatherData?.toJson()}');
+    print(' data   ${weatherData?.forecast?.toJson()}');
     notifyListeners();
   }
 }
