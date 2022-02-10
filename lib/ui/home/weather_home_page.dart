@@ -28,7 +28,7 @@ class WeatherHomePage extends StatelessWidget {
               homeProvider.weatherData?.forecast?.forecastday?[0].hour ??
                   List.empty();
           return Scaffold(
-            backgroundColor: Colors.teal.shade100,
+            // backgroundColor: Colors.teal.shade100,
             extendBodyBehindAppBar: true,
             body: Container(
               decoration: BoxDecoration(
@@ -54,21 +54,21 @@ class WeatherHomePage extends StatelessWidget {
                   SliverToBoxAdapter(
                     child: isLoading
                         ? Center(
-                            child: Container(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                                strokeWidth: 2,
-                              ),
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
                             ),
-                          )
+                          ),
+                        )
                         : HomeBaseUi(
-                            currentData: currentData,
-                            dayData: dayData,
-                            sunRise: sunRise,
-                            sunSet: sunSet,
-                            hoursList: hoursList),
+                        currentData: currentData,
+                        dayData: dayData,
+                        sunRise: sunRise,
+                        sunSet: sunSet,
+                        hoursList: hoursList)
                   )
                 ],
               ),
