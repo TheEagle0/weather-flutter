@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-int currentTimeInSeconds = (DateTime.now().millisecondsSinceEpoch) ~/ 1000;
+int currentTimeInSeconds = DateTime.now().millisecondsSinceEpoch;
+
 DateTime now = DateTime.now();
 
 String background({String sunRise = '', String sunSet = ''}) {
@@ -14,28 +15,24 @@ String background({String sunRise = '', String sunSet = ''}) {
 
       return 'images/night.jpg';
     }
-  }
-  else return'images/background.png';
+  } else
+    return 'images/background.png';
 }
 
 Color textColor({String sunRise = '', String sunSet = ''}) {
   if (currentTimeInSeconds.isBetween(parseTime(sunRise), parseTime(sunSet))) {
-    print('day');
     return Colors.black;
   } else {
-    print('night');
-
     return Colors.white;
   }
 }
 
 int parseTime(String time) {
-  if (time.isNotEmpty) {
-    final format = DateFormat.jm();
-    TimeOfDay tod = TimeOfDay.fromDateTime(format.parse(time));
-    return DateTime(now.year, now.month, now.day, tod.hour, tod.minute).second;
-  } else
-    return 0;
+  final format = DateFormat("HH:mm aa");
+  TimeOfDay tod = TimeOfDay.fromDateTime(format.parse(time));
+  final now = DateTime.now();
+  return DateTime(now.year, now.month, now.day, tod.hour, tod.minute)
+      .millisecondsSinceEpoch;
 }
 
 extension Range on num {
@@ -43,3 +40,5 @@ extension Range on num {
     return from < this && this < to;
   }
 }
+
+
