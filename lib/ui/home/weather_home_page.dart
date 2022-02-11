@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:weather/services/get_background.dart';
+import 'package:weather/services/get_background_icons.dart';
 import 'package:weather/ui/home/home_base_ui.dart';
 import 'package:weather/ui/home/home_provider.dart';
 
@@ -33,8 +34,7 @@ class WeatherHomePage extends StatelessWidget {
             body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(
-                          background(sunRise: sunRise, sunSet: sunSet)),
+                      image: AssetImage(background(isDay: currentData?.isDay)),
                       fit: BoxFit.cover)),
               child: CustomScrollView(
                 slivers: [
@@ -42,34 +42,40 @@ class WeatherHomePage extends StatelessWidget {
                     snap: true,
                     floating: true,
                     pinned: true,
+                    elevation: 0,
+                    leading: null,
                     backgroundColor: Colors.transparent,
                     expandedHeight: 100.0,
                     flexibleSpace: FlexibleSpaceBar(
+                      titlePadding: EdgeInsets.only(left: 24, bottom: 16),
                       title: Text(
-                        homeProvider.weatherData?.location?.name ?? 'Weather',
-                        textAlign: TextAlign.start,
-                      ),
+                          homeProvider.weatherData?.location?.name ?? 'Weather',
+                          textAlign: TextAlign.start,
+                          style: GoogleFonts.barlowCondensed(
+                              color:
+                                  textColor(sunRise: sunRise, sunSet: sunSet),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 36)),
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: isLoading
-                        ? Center(
-                          child: Container(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                              strokeWidth: 2,
-                            ),
-                          ),
-                        )
-                        : HomeBaseUi(
-                        currentData: currentData,
-                        dayData: dayData,
-                        sunRise: sunRise,
-                        sunSet: sunSet,
-                        hoursList: hoursList)
-                  )
+                      child: isLoading
+                          ? Center(
+                              child: Container(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 2,
+                                ),
+                              ),
+                            )
+                          : HomeBaseUi(
+                              currentData: currentData,
+                              dayData: dayData,
+                              sunRise: sunRise,
+                              sunSet: sunSet,
+                              hoursList: hoursList))
                 ],
               ),
             ),

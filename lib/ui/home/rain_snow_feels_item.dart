@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 class RainSnowFeels extends StatelessWidget {
@@ -30,10 +31,10 @@ class RainSnowFeels extends StatelessWidget {
               Expanded(
                 child: Text('$text',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    )),
+                    style: GoogleFonts.barlowCondensed(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20)),
               )
             ],
           )),

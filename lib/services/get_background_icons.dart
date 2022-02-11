@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:weather/services/state_icon.dart';
 
-int currentTimeInSeconds = DateTime.now().millisecondsSinceEpoch;
+int currentTimeInMillis = DateTime.now().millisecondsSinceEpoch;
 
 DateTime now = DateTime.now();
 
-String background({String sunRise = '', String sunSet = ''}) {
-  if (sunSet.isNotEmpty) {
-    if (currentTimeInSeconds.isBetween(parseTime(sunRise), parseTime(sunSet))) {
+String background({int? isDay}) {
+  if (isDay != null) {
+    if (isDay == 1) {
       print('day');
       return 'images/sunset.jpeg';
     } else {
@@ -19,12 +20,26 @@ String background({String sunRise = '', String sunSet = ''}) {
     return 'images/background.png';
 }
 
+Map<int, IconData> getIcons({String? sunRise, String? sunSet,int? time}) {
+  if (sunRise != null) {
+    if (time!.isBetween(parseTime(sunRise), parseTime(sunSet!))) {
+      return dayStatesMap;
+    } else {
+      return nightStatesMap;
+    }
+  } else
+    return dayStatesMap;
+}
+
 Color textColor({String sunRise = '', String sunSet = ''}) {
-  if (currentTimeInSeconds.isBetween(parseTime(sunRise), parseTime(sunSet))) {
-    return Colors.black;
-  } else {
+  if (sunRise.isNotEmpty) {
+    if (currentTimeInMillis.isBetween(parseTime(sunRise), parseTime(sunSet))) {
+      return Colors.black;
+    } else {
+      return Colors.white;
+    }
+  } else
     return Colors.white;
-  }
 }
 
 int parseTime(String time) {
@@ -40,5 +55,3 @@ extension Range on num {
     return from < this && this < to;
   }
 }
-
-

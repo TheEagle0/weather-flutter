@@ -59,8 +59,12 @@ class CurrentWeatherData extends StatelessWidget {
                         color: textColor,
                       )),
                       TextSpan(
-                          text: maxTemp,
-                          style: TextStyle(fontSize: 18, color: textColor)),
+                        text: maxTemp,
+                        style: GoogleFonts.barlowCondensed(
+                            color: textColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20),
+                      ),
                     ])),
                     SizedBox.fromSize(
                       size: Size(24.0, 24.0),
@@ -75,7 +79,10 @@ class CurrentWeatherData extends StatelessWidget {
                       )),
                       TextSpan(
                           text: minTemp,
-                          style: TextStyle(fontSize: 18, color: textColor)),
+                          style: GoogleFonts.barlowCondensed(
+                              color: textColor,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20)),
                     ]))
                   ],
                 )

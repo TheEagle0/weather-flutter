@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 class HourlyForecastItem extends StatelessWidget {
   final int time;
-  final String iconUrl;
+  final IconData icon;
   final int temp;
   final Color textColor;
 
@@ -17,9 +17,9 @@ class HourlyForecastItem extends StatelessWidget {
   HourlyForecastItem(
       {Key? key,
       required this.time,
-      required this.iconUrl,
+      required this.icon,
       required this.temp,
-      required this.textColor})
+      required this.textColor,})
       : super(key: key);
 
   @override
@@ -32,20 +32,22 @@ class HourlyForecastItem extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          Text(formattedTime(time), style: GoogleFonts.barlowCondensed(color: textColor,fontSize: 15)),
+          Text(formattedTime(time),
+              style:
+                  GoogleFonts.barlowCondensed(color: textColor, fontSize: 17,fontWeight: FontWeight.w600)),
           Container(
-            margin: EdgeInsets.only(top: 4,bottom: 4),
+            margin: EdgeInsets.only(top: 4, bottom: 4),
             width: 50,
             height: 50,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(
-              Uri.parse('https:$iconUrl').toString(),
-            ))),
+            child: Icon(
+              icon,
+              color: textColor,
+            ),
           ),
           Text(
             temp.toString(),
-            style: GoogleFonts.barlowCondensed(color: textColor,fontSize: 15,fontWeight: FontWeight.w400),
+            style: GoogleFonts.barlowCondensed(
+                color: textColor, fontSize: 17,fontWeight: FontWeight.w600),
           )
         ],
       ),

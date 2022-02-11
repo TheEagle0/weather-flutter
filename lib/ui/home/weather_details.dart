@@ -51,10 +51,9 @@ class WeatherDetails extends StatelessWidget {
                     size: Size(16, 16),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Expanded(
-                        flex: 1,
+                        flex: 2,
                         child: Container(
                           padding: EdgeInsets.only(left: 16),
                           child: Row(
@@ -66,17 +65,17 @@ class WeatherDetails extends StatelessWidget {
                                     'Precipitation',
                                     style: GoogleFonts.barlowCondensed(
                                         color: textColor,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16),
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 18),
                                   ),
                                   SizedBox.fromSize(
                                     size: Size(16, 16),
                                   ),
                                   Text(
                                     '$precipitation in',
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                                    style: GoogleFonts.barlowCondensed(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
                                         color: textColor),
                                   ),
                                   SizedBox.fromSize(
@@ -85,16 +84,16 @@ class WeatherDetails extends StatelessWidget {
                                   Text('HUM',
                                       style: GoogleFonts.barlowCondensed(
                                           color: textColor,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w700,
                                           fontSize: 16)),
                                   SizedBox.fromSize(
                                     size: Size(16, 16),
                                   ),
                                   Text(
                                     '$humidity %',
-                                    style: TextStyle(
+                                    style: GoogleFonts.barlowCondensed(
                                         fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                         color: textColor),
                                   ),
                                   SizedBox.fromSize(
@@ -103,16 +102,16 @@ class WeatherDetails extends StatelessWidget {
                                   Text('UV',
                                       style: GoogleFonts.barlowCondensed(
                                           color: textColor,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w700,
                                           fontSize: 16)),
                                   SizedBox.fromSize(
                                     size: Size(16, 16),
                                   ),
                                   Text(
                                     uv,
-                                    style: TextStyle(
+                                    style: GoogleFonts.barlowCondensed(
                                         fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                         color: textColor),
                                   ),
                                 ],
@@ -125,21 +124,21 @@ class WeatherDetails extends StatelessWidget {
                                       const EdgeInsets.fromLTRB(0, 0, 16, 0),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.end,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text('Wind',
                                           style: GoogleFonts.barlowCondensed(
                                               color: textColor,
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w700,
                                               fontSize: 16)),
                                       SizedBox.fromSize(
                                         size: Size(16, 16),
                                       ),
                                       Text(
                                         wind,
-                                        style: TextStyle(
+                                        style: GoogleFonts.barlowCondensed(
                                             fontSize: 18,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w600,
                                             color: textColor),
                                       ),
                                       SizedBox.fromSize(
@@ -148,16 +147,16 @@ class WeatherDetails extends StatelessWidget {
                                       Text('Visibility',
                                           style: GoogleFonts.barlowCondensed(
                                               color: textColor,
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w700,
                                               fontSize: 16)),
                                       SizedBox.fromSize(
                                         size: Size(16, 16),
                                       ),
                                       Text(
                                         visibility,
-                                        style: TextStyle(
+                                        style: GoogleFonts.barlowCondensed(
                                             fontSize: 18,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w600,
                                             color: textColor),
                                       ),
                                       SizedBox.fromSize(
@@ -166,16 +165,16 @@ class WeatherDetails extends StatelessWidget {
                                       Text('Pressure',
                                           style: GoogleFonts.barlowCondensed(
                                               color: textColor,
-                                              fontWeight: FontWeight.w600,
+                                              fontWeight: FontWeight.w700,
                                               fontSize: 16)),
                                       SizedBox.fromSize(
                                         size: Size(16, 16),
                                       ),
                                       Text(
                                         pressure,
-                                        style: TextStyle(
+                                        style: GoogleFonts.barlowCondensed(
                                             fontSize: 18,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w600,
                                             color: textColor),
                                       ),
                                     ],

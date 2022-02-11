@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:weather/ui/home/weather_details.dart';
 
-import '../../services/get_background.dart';
+import '../../services/get_background_icons.dart';
 import 'current_weather_data.dart';
 import 'hourly_forecast.dart';
 
@@ -48,6 +48,8 @@ class HomeBaseUi extends StatelessWidget {
               child: HourlyForecast(
                 hoursList: hoursList,
                 textColor: textColor(sunRise: sunRise, sunSet: sunSet),
+                sunRise: sunRise,
+                sunSet: sunSet,
               ),
             ),
           ],
