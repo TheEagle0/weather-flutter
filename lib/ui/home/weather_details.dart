@@ -35,8 +35,8 @@ class WeatherDetails extends StatelessWidget {
                       : Color(0x994c8bf5),
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(16.0))),
+                      topRight: Radius.circular(16.0),
+                      bottomLeft: Radius.circular(16.0))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -51,15 +51,16 @@ class WeatherDetails extends StatelessWidget {
                     size: Size(16, 16),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Expanded(
                         flex: 1,
                         child: Container(
+                          padding: EdgeInsets.only(left: 16),
                           child: Row(
                             children: [
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     'Precipitation',
@@ -124,7 +125,7 @@ class WeatherDetails extends StatelessWidget {
                                       const EdgeInsets.fromLTRB(0, 0, 16, 0),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                        CrossAxisAlignment.end,
                                     children: [
                                       Text('Wind',
                                           style: GoogleFonts.barlowCondensed(

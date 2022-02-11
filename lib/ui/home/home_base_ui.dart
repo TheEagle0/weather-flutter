@@ -36,7 +36,7 @@ class HomeBaseUi extends StatelessWidget {
               temp: currentData?.tempC?.toInt().toString() ?? 'N/A',
               maxTemp: dayData?.maxtempC?.toInt().toString() ?? 'N/A',
               minTemp: dayData?.mintempC?.toInt().toString() ?? 'N/A',
-              condition: dayData?.condition?.text ?? 'N/A',
+              condition: currentData?.condition?.text ?? 'N/A',
               willRain: dayData?.dailyWillItRain ?? 0,
               willSnow: dayData?.dailyWillItSnow ?? 0,
               feelsLike: currentData?.feelslikeC?.toInt().toString() ?? '',

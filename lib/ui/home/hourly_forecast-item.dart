@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class HourlyForecastItem extends StatelessWidget {
@@ -31,7 +32,7 @@ class HourlyForecastItem extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          Text(formattedTime(time), style: TextStyle(color: textColor,fontSize: 15)),
+          Text(formattedTime(time), style: GoogleFonts.barlowCondensed(color: textColor,fontSize: 15)),
           Container(
             margin: EdgeInsets.only(top: 4,bottom: 4),
             width: 50,
@@ -44,7 +45,7 @@ class HourlyForecastItem extends StatelessWidget {
           ),
           Text(
             temp.toString(),
-            style: TextStyle(color: textColor,fontSize: 15),
+            style: GoogleFonts.barlowCondensed(color: textColor,fontSize: 15,fontWeight: FontWeight.w400),
           )
         ],
       ),
